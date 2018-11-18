@@ -29,11 +29,9 @@ class User(db.Model):
 db.create_all()
 
 def check_passwords(password, password_hash):
-    print(f"CHECK {password} / {password_hash}")
     return sha256_crypt.verify(password, password_hash)
 
 def generate_hash(password):
-    print(f"PASS {password} / {sha256_crypt.hash(password)}")
     return sha256_crypt.hash(password)
 
 @app.route('/momovement')
