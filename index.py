@@ -118,6 +118,6 @@ if __name__ == "__main__":
     secret_key = config.get('secret_key', None)
     if secret_key:
         app.secret_key = secret_key
-        app.run(debug=True)
+        app.run(host='0.0.0.0', port=5000)
     else:
         print('secret_key is required')

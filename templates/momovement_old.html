@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="../static/css/theme.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
+
+<!-- amCharts javascript sources -->
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+		<script type="text/javascript" src="https://www.amcharts.com/lib/3/pie.js"></script>
+
+
+</head>
+
+<body style="background-image:url('../static/img/page_momovement.png');background-size:cover;background-repeat: no-repeat;height:4000px;">
+  <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffffff">
+    <div class="container"> <a class="navbar-brand text-primary" href="/">
+        <img class="img-fluid d-block" src="../static/img/logo.png" width="100">
+      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbar4">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"> <a class="nav-link" href="">About</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">Impact</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">Join Us</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="#">Donate</a> </li>
+        </ul>
+        {% if logged %}
+          <h2 class="text-center">
+              <a class="nav-link" href="dashboard">
+                  <span class="label label-default">{{ email }}</span>
+              </a>
+          </h2>
+          <form method="POST" action="logout">
+              <button class="btn btn-primary" type="submit">Logout</button>
+          </form>
+        {% else %}
+          <a href="login" class="btn navbar-btn ml-md-2 btn-primary">Log In</a>
+          <a href="registration" class="btn navbar-btn ml-md-2 btn-primary">Sign Up</a>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+</body>
+</html>
