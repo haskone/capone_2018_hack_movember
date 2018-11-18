@@ -36,12 +36,21 @@ def generate_hash(password):
     print(f"PASS {password} / {sha256_crypt.hash(password)}")
     return sha256_crypt.hash(password)
 
-@app.route('/user')
-def user():
-    if not session.get('logged_in'):
+@app.route('/momovement')
+def momovement():
+    email = session.get('logged_in')
+    if email:
+        return render_template('momovement.html', logged=True, email=email.split('@')[0])
+    else:
+        return render_template('momovement.html', logged=False, email=None)
+
+@app.route('/dashboard')
+def dashboard():
+    email = session.get('logged_in')
+    if not email:
         return render_template('login.html')
     else:
-        return render_template('user.html')
+        return render_template('dashboard.html', logged=True, email=email.split('@')[0])
 
 @app.route('/')
 def home():
@@ -70,7 +79,7 @@ def login():
         flash('The email address or password is incorrect')
         return render_template('login.html')
 
-    return home()
+    return dashboard()
 
 @app.route('/registration', methods=['GET', 'POST'])
 def registration():
