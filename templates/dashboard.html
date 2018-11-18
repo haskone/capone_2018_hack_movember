@@ -75,35 +75,35 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffffff">
-    <div class="container"> <a class="navbar-brand text-primary" href="/">
-        <img class="img-fluid d-block" src="../static/img/logo.png" width="100">
-      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar4">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Impact</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Join Us</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Donate</a> </li>
-        </ul>
-        {% if logged %}
-          <h2 class="text-center">
-              <a class="nav-link" href="dashboard">
-                  <span class="label label-default">{{ email }}</span>
-              </a>
-          </h2>
-          <form method="POST" action="logout">
-              <button class="btn btn-primary" type="submit">Logout</button>
-          </form>
-        {% else %}
-          <a href="login" class="btn navbar-btn ml-md-2 btn-primary">Log In</a>
-          <a href="registration" class="btn navbar-btn ml-md-2 btn-primary">Sign Up</a>
-        {% endif %}
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffffff">
+        <div class="container"> <a class="navbar-brand text-primary" href="/">
+            <img class="img-fluid d-block" src="../static/img/logo.png" width="100">
+          </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar4">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+              <li class="nav-item"> <a class="nav-link" href="#">Impact</a> </li>
+              <li class="nav-item"> <a class="nav-link" href="#">Join Us</a> </li>
+              <li class="nav-item"> <a class="nav-link" href="#">Donate</a> </li>
+            </ul>
+            {% if logged %}
+                  <h2 class="text-center">
+                      <a class="nav-link" href="dashboard">
+                          <span class="label label-default">{{ email }}</span>
+                      </a>
+                  </h2>
+                  <form method="POST" action="logout">
+                      <button class="btn btn-primary" type="submit">Log Out</button>
+                  </form>
+            {% else %}
+              <a href="login" class="btn navbar-btn ml-md-2 btn-primary">Log In</a>
+              <a href="registration" class="btn navbar-btn ml-md-2 btn-primary">Sign Up</a>
+            {% endif %}
+          </div>
+        </div>
+      </nav>
   <div class="py-5" style="background-image:url('../static/img/bg_dashboard.jpg');">
     <div class="container">
       <div class="row">
@@ -152,10 +152,12 @@
         <div class="d-flex flex-column justify-content-center p-3 col-lg-7 order-1 order-lg-2">
           <div class="row">
             <div class="col-md-12">
-              <h2 class="">YOUR TEAM</h2>
+              
             </div>
           </div>
-          <p class="lead mb-0">I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary.</p>
+        <a href="#events"><img src="../static/img/thermomete2r.png"></div></a>
+          <!--<p class="lead mb-0">I should be incapable of drawing a single stroke at the present moment; and yet I feel that I never was a greater artist than now. When, while the lovely valley teems with vapour around me, and the meridian sun strikes the upper surface of the impenetrable foliage of my trees, and but a few stray gleams steal into the inner sanctuary.</p>-->
+ 
         </div>
       </div>
     </div>
@@ -163,7 +165,7 @@
 
 
 
-  <div class="py-5">
+  <div class="py-5" style="background-color: #00ada8;">
     <div class="container">
       <div class="row">
         <div class="col-md-4" style="background-image:url('../static/img/block_pplimpact.png');background-repeat: no-repeat;"></div>
@@ -176,7 +178,7 @@
   </div>
   
   <div class="py-5">
-    <div class="container">
+    <div class="container" style="background-color:#ffffff;">
       <div class="row">
         <div class="col-md-4" style="background-image:url('../static/img/block_pplmotivated.png');background-repeat: no-repeat;"></div>
         
@@ -192,8 +194,8 @@
     <meter class="chart" value="9" min="0" max="9" ></meter>-->
   </div>
 
-  <script src="jquery.min.js"></script>
-  <script src="jquery.waffly.js"></script>
+  <!-- <script src="jquery.min.js"></script>
+  <script src="jquery.waffly.js"></script> -->
 
   <script>
   $(document).ready(function() {
@@ -225,9 +227,14 @@
   </script>
 
         </div>
-      </div>
-    </div>
+                <div class="col-md-12 text-center">
+          <h1 contenteditable="true" id="events" style="color:#ffffff;">Toronto Events</h1>
+        </div>
+<div class="row" style="width:1110px;height:771px;">
+    <div class="col-md-12" style="background-image:url('../static/img/events_list.png');background-size:cover;background-repeat: no-repeat;"></div>
   </div>
+</div>
+</body>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

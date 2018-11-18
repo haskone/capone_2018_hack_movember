@@ -16,12 +16,7 @@
     <div class="container">
       <div class="row"></div>
       <div class="row">
-        <div class="col-md-6" style="color:#ffffff;">
-          <h2 class="text-left" contenteditable="true">Get Involved</h2>
-          <h3 class="text-left">Grow a Mo</h3>
-          <p class="mb-0 text-left">Trucker, regent, connoisseur or wisp? No matter the shape or style of your Mo this Movember, your face can raise funds and awareness for men’s health.</p>
-          <h3 class="text-left">Make your Move</h3>
-        </div>
+        <div class="col-md-6" style="color:#ffffff;"><img src="../static/img/bg_login.png" style="width:700px;"></div>
 
         <div class="col-md-6" style="">
           <div class="mx-auto col-md-12 col-10 bg-white p-5" style="">
@@ -38,23 +33,23 @@
               <div class="col-md-12"></div>
             </div>
             <form method="POST" action="login">
-              <div class="form-group"> <input type="email" name="email" class="form-control" placeholder="Enter email" id="form9" required> </div>
-              <div class="form-group mb-3"> <input type="password" name="password" class="form-control" placeholder="Password" id="form10" required> <small class="form-text text-muted text-right">
-                  <a href="#"> Forgot Password</a>
-                </small> </div>
-
-                {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                    {% for message in messages %}
-                    <div class="alert alert-danger" role="alert">
-                      {{ message }}
-                    </div>
-                    {% endfor %}
-                  {% endif %}
-                {% endwith %}
-
-                <button class="btn btn-primary" type="submit">Log in</button>
-            </form>
+                <div class="form-group"> <input type="email" name="email" class="form-control" placeholder="Enter email" id="form9" required> </div>
+                <div class="form-group mb-3"> <input type="password" name="password" class="form-control" placeholder="Password" id="form10" required> <small class="form-text text-muted text-right">
+                    <a href="#"> Forgot Password</a>
+                  </small> </div>
+  
+                  {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                      {% for message in messages %}
+                      <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                      </div>
+                      {% endfor %}
+                    {% endif %}
+                  {% endwith %}
+  
+                  <button class="btn btn-primary" type="submit">Log in</button>
+              </form>
           </div>
         </div>
       </div>

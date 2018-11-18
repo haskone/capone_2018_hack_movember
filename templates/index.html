@@ -8,42 +8,59 @@
   <link rel="stylesheet" href="../static/css/theme.css" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Overpass" rel="stylesheet">
-
+  <style>
+  .hvr-grow {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+  }
+  .hvr-grow:hover, .hvr-grow:focus, .hvr-grow:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+</style>
 <!-- amCharts javascript sources -->
 		<script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
 		<script type="text/javascript" src="https://www.amcharts.com/lib/3/pie.js"></script>
+
 </head>
 
 <body style="background-image:url('../static/img/bg.png');background-size:cover;background-repeat: no-repeat;background-position:center;">
   <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffffff">
-    <div class="container"> <a class="navbar-brand text-primary" href="/">
-        <img class="img-fluid d-block" src="../static/img/logo.png" width="100">
-      </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbar4">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Impact</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Join Us</a> </li>
-          <li class="nav-item"> <a class="nav-link" href="#">Donate</a> </li>
-        </ul>
-        {% if logged %}
-          <h2 class="text-center">
-              <a class="nav-link" href="dashboard">
-                  <span class="label label-default">{{ email }}</span>
-              </a>
-          </h2>
-          <form method="POST" action="logout">
-              <button class="btn btn-primary" type="submit">Logout</button>
-          </form>
-        {% else %}
-          <a href="login" class="btn navbar-btn ml-md-2 btn-primary">Log In</a>
-          <a href="registration" class="btn navbar-btn ml-md-2 btn-primary">Sign Up</a>
-        {% endif %}
+      <div class="container"> <a class="navbar-brand text-primary" href="/">
+          <img class="img-fluid d-block" src="../static/img/logo.png" width="100">
+        </a> <button class="navbar-toggler navbar-toggler-right border-0" type="button" data-toggle="collapse" data-target="#navbar4">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbar4">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"> <a class="nav-link" href="#">About</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">Impact</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">Join Us</a> </li>
+            <li class="nav-item"> <a class="nav-link" href="#">Donate</a> </li>
+          </ul>
+          {% if logged %}
+                <h2 class="text-center">
+                    <a class="nav-link" href="dashboard">
+                        <span class="label label-default">{{ email }}</span>
+                    </a>
+                </h2>
+                <form method="POST" action="logout">
+                    <button class="btn btn-primary" type="submit">Log Out</button>
+                </form>
+          {% else %}
+            <a href="login" class="btn navbar-btn ml-md-2 btn-primary">Log In</a>
+            <a href="registration" class="btn navbar-btn ml-md-2 btn-primary">Sign Up</a>
+          {% endif %}
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
   <div class="py-5" style="color:#ffffff; margin-top:140px;">
     <div class="container" style="background-color:#000000a8;padding-top:40px;padding-bottom:40px;">
       <div class="row">
@@ -65,14 +82,20 @@
         </div>
       </div>
     </div>
-  </div>
+        <div class="row">
+      	<div class="col-md-12">
+      	<h2 class="text-center" style="padding-top:60px;padding-bottom:20px;">Together we can make a difference for
+men's health in <p style="color:#00ada8;">prostate cancer,
+testicular cancer, mental health and
+suicide prevention. </p></h2>
+		</div>
+	</div>
   <div class="py-3 text-center" style="padding-top: 0px;">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-4 col-6 p-4"> 
-            <a href="momovement">
-              <img class="img-fluid d-block" src="../static/img/badge_movement.svg">
-            </a>
+                 <a href="momovement" class="hvr-grow">  <img class="img-fluid d-block" src="../static/img/badge_movement.svg"></a>
+
 
           <!--<img class="img-fluid d-block" src="img/badge_movement.svg"></a>-->
           <h4> <b>Mo' Movement</b></h4>
@@ -91,12 +114,12 @@
       </div>
     </div>
   </div>
-  <div class="py-5" style="">
+  <div class="py-5" style="background-color: #000000;">
     <div class="container">
       <div class="row">
         <div class="col-md-3"></div>
-        <div class="col-md-3"><a class="btn btn-primary btn-lg w-75" href="#">Join Us</a></div>
-        <div class="col-md-3"><a class="btn btn-outline-secondary btn-lg w-75" href="#">Donate</a></div>
+        <div class="col-md-3"><a class="btn btn-primary w-75" href="registration" style="background-color:white;color:black;border:none;height:40px;">Join Us</a></div>
+        <div class="col-md-3"><a class="btn btn-outline-secondary w-75" href="#" style="border:1px solid #ffffff;color:#ffffff;height:40px;">Donate</a></div>
         <div class="col-md-3"></div>
       </div>
     </div>
@@ -116,22 +139,15 @@
     <div class="py-5">
       <div class="container" style="background-color: #FFFFFF;">
         	<div class="row">
-          	<div class="col-md-12">
-            	<h2 class="text-center" style="padding-top:60px;padding-bottom:40px;">Our Mo'vement is yearlong and worldwide</h2>
+          	<div class="col-md-12" style="background-color:#000000;color:#ffffff;">
+            	<h2 class="text-center" style="padding-top:60px;padding-bottom:20px;">Our Mo'vement is yearlong</h2>
+            	           <p style="text-align: center;font-size:20px;padding-bottom:20px;">Every day makes an impact.<br> Prostate cancer kills 43 men every hour. <br>Every minute one man takes his own life globally.<br>3 out of 4 people who take their life are men.</p>
             </div>
         	</div>
 
-         <div class="row">
-          <div class="col-md-12">
-            <p style="text-align: center;">X number of men die prematurely ....</p>
-            <h6 class="text-center">Together we can make a difference for
-men's health – in prostate cancer,
-testicular cancer, mental health and
-suicide prevention.</h6>
-          </div>
-      </div>
-    <div class="row">
-                <div class="col-md-12">
+     <div class="row" style="height:500px;">
+    <div class="col-md-4" style="background-image:url('../static/img/block_stat1.png');background-repeat: no-repeat;"></div>
+	        <div class="col-md-8">
                   <div id="chartdiv" style="width: 100%; height: 400px;">
 
 			<!-- amCharts javascript code -->
@@ -216,24 +232,14 @@ suicide prevention.</h6>
     </script>
 		</div>
 		</div>
-		
-	</div>
-
-	<div class="row">
+</div>
 		<div class="col-md-12" style="background-image:url('../static/img/world_map.jpg');height:900px;background-repeat: no-repeat;"></div>
+				<h2 class="text-center" style="padding-bottom:20px;">Let's help Mo'tivate Worldwide</h2>
 	</div>
 	</div>
     </div>
   </div>
 
-  <script type="text/javascript">
-		function remove() {
-      var node = document.querySelector('[title="JavaScript charts"]');
-			node.parentNode.removeChild(node);
-    }
-    window.onload = remove;
-  </script>
-  <a href="https://www.amcharts.com/">JS charts by amCharts</a>
 </body>
 
 </html>
