@@ -1,21 +1,20 @@
-import json
-import sqlite3
-
 from flask import (
     Flask,
     session,
     request,
     render_template,
     flash,
-    g,
 )
 from flask_sqlalchemy import SQLAlchemy
-from passlib.hash import sha256_crypt
+
+from utils import (
+    check_passwords,
+    generate_hash,
+)
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 
-# TODO: blueprint
 db = SQLAlchemy(app)
 
 class User(db.Model):
@@ -28,36 +27,36 @@ class User(db.Model):
 
 db.create_all()
 
-def check_passwords(password, password_hash):
-    return sha256_crypt.verify(password, password_hash)
-
-def generate_hash(password):
-    return sha256_crypt.hash(password)
-
 @app.route('/momovement')
 def momovement():
     email = session.get('logged_in')
+    logged = bool(email)
     if email:
-        return render_template('momovement.html', logged=True, email=email.split('@')[0])
-    else:
-        return render_template('momovement.html', logged=False, email=None)
+        email = email.split('@')[0]
+
+    return render_template('momovement.html', logged=logged, email=email)
 
 @app.route('/dashboard')
 def dashboard():
     email = session.get('logged_in')
     if not email:
         return render_template('login.html')
-    else:
-        return render_template('dashboard.html', logged=True, email=email.split('@')[0])
+
+    return render_template(
+        'dashboard.html',
+        logged=True,
+        email=email.split('@')[0],
+    )
 
 @app.route('/')
 def home():
     email = session.get('logged_in')
+    logged = bool(email)
     if email:
-        return render_template('index.html', logged=True, email=email.split('@')[0])
-    else:
-        return render_template('index.html', logged=False, email=None)
- 
+        email = email.split('@')[0]
+
+    return render_template('index.html', logged=logged, email=email)
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -106,21 +105,3 @@ def registration():
 def logout():
     session.pop('logged_in', None)
     return home()
-
-def get_config(filename):
-    with open(filename, 'r') as f:
-        return json.load(f)
-
-if __name__ == "__main__":
-    config = get_config('config.json')
-    secret_key = config.get('secret_key', None)
-    host = config.get('host', None)
-    port = config.get('port', None)
-    if secret_key:
-        app.secret_key = secret_key
-        if host is None or port is None:
-            app.run()
-        else:
-            app.run(host=host, port=int(port))
-    else:
-        print('secret_key is required')
